@@ -17,3 +17,8 @@ The primary aim of this project is to get comfortable with setting up an Express
 - [ ] You should write tests for your database and use a separate test database and build script.
 - [ ] Use Heroku or a similar service to host the app and the database.
 - [ ] Try to include ES6 syntax on the server.
+
+### Team members:-
+* Shadi Rayan: [Github Profile Page](https://github.com/mrfong)
+* Karam Ashqar: [Github Profile Page](https://github.com/karam1ashqar)
+* Faris Abutayah: [Github Profile Page](https://github.com/faris114)
