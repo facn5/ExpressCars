@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/facn5/FullstackExpress/issues"
   },
-  "homepage": "https://github.com/facn5/FullstackExpress#readme"
+  "homepage": "https://github.com/facn5/FullstackExpress#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
