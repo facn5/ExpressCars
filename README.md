@@ -1,4 +1,4 @@
-# FullstackExpress
+# ExpressCars
 
 Express server-rendered full-stack - Find the right car for you!
 
