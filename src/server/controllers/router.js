@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 
-const fruit = require('./fruit');
 const error = require('./error');
 
 // router.get('/fruit', fruit.get);
