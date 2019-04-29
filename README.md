@@ -2,14 +2,14 @@
 
 Express server-rendered full-stack - Find the right car for you!
 
-### What 
+### What
 User fills a form of desired specifications/features/capabilities to find the matching car for the user.
 After retreving 3 cars that matches his needs, the user can read more details about these cars.
 
 ### What Technically?
 * An app using the Express framework.
 * Using a PostgreSQL database to store and retrieve your data.
-* Using the retrieved data to populate a Handlebars template for server-side 
+* Using the retrieved data to populate a Handlebars template for server-side
 * rendering to be displayed on the front-end.
 
 ### Why?
@@ -21,6 +21,9 @@ The primary aim of this project is to get comfortable with setting up an Express
 - [ ] You should write tests for your database and use a separate test database and build script.
 - [ ] Use Heroku or a similar service to host the app and the database.
 - [ ] Try to include ES6 syntax on the server.
+
+### Database Schema:-
+![Database Scheme](https://raw.githubusercontent.com/facn5/ExpressCars/Readme/public/assets/database_schema.png)
 
 ### Team members:-
 * Shadi Rayan: [Github Profile Page](https://github.com/mrfong)
