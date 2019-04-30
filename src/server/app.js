@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
+
 const exphbs = require('express-handlebars');
 const routes = require('./routes/index');
 const helpers = require('./views/helpers/index');
+
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const compression = require('compression');
