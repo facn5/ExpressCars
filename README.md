@@ -23,7 +23,7 @@ The primary aim of this project is to get comfortable with setting up an Express
 - [ ] Try to include ES6 syntax on the server.
 
 ### Database Schema:-
-![Database Scheme](https://raw.githubusercontent.com/facn5/ExpressCars/Readme/public/assets/database_schema.png)
+![Database Scheme](https://raw.githubusercontent.com/facn5/ExpressCars/master/public/assets/database_schema.png)
 
 ### Team members:-
 * Shadi Rayan: [Github Profile Page](https://github.com/mrfong)
