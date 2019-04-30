@@ -7,7 +7,9 @@ const login = require("./loginPage");
 
 // router.get('/fruit', fruit.get);
 // router.post('/fruit', fruit.post);
-
+router.get("/home", (req, res) => {
+  login.checkauth(res, req);
+});
 
 router.post("/login", ({ body }, res) => {
   login.login(res, body.username, body.password);
