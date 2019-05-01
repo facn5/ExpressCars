@@ -49,7 +49,7 @@ exports.login = (res, user, pass) => {
                 };
 
                 res.cookie("udetails", cookie, options);
-                res.render("layouts/home", {cars: cars});
+                res.render("layouts/home", {cars: cars, u$u: user});
                 return;
               } else {
                 endObject = {
@@ -129,7 +129,7 @@ exports.checkauth = (res, req) => {
                       }
                     });
                   else {
-                    if (success) res.render("layouts/home", {cars: cars});
+                    if (success) res.render("layouts/home", {cars: cars,  u$u});
                     else
                       res.render("layouts/loginPageLayout", {
                         object: {
