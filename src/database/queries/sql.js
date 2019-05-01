@@ -8,7 +8,7 @@ const getPasswordWhereUsernameEqualsArg1 = (username, cb) =>
   );
   const getCars = (cb) =>
     query.select(
-      "SELECT * from CARS LIMIT 10;",
+      "SELECT * from CARS LIMIT 9;",
       cb
     );
 
