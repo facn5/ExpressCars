@@ -2,27 +2,43 @@
 <link rel="stylesheet" href="/../../../../styles/index.css"/>
 
 <div id="main-content">
-    <div id="manufacturer">
 
-      <form>
-        Type of car:<br>
-        <input type="text" name="Name"><br>
-        Miles per Gallon:<br>
-        <input type="text" name="Miles_per_Gallon">
-        Cylinders:<br>
-        <input type="text" name="Cylinders">
-        Displacement:<br>
-        <input type="text" name="Displacement">
-        Horsepower:<br>
-        <input type="text" name="Horsepower">
-        Weight in lbs:<br>
-        <input type="text" name="Weight_in_lbs">
-        Acceleration:<br>
-        <input type="text" name="Acceleration">
-        Year:<br>
-        <input type="text" name="Year">
-        Origin:<br>
-        <input type="text" name="Origin">
+      <form method="POST" action="/search">
+        Vehicle:
+        <input type="text" name="name">
+        Origin:
+        <input type="text" name="origin">
+        <input type="submit" value="Submit">
       </form>
+
+</div>
+<div id="content-container">
+
+{{#each cars}}
+<div class="box">
+  <h3 >{{name}}</h3>
+   <p >Miles_per_Gallon:{{miles_per_gallon}}</p>
+     <p >Cylinders:{{cylinders}}</p>
+       <p >Displacement:{{displacement}}</p>
+              <p >Horsepower:{{horsepower}}</p>
+               <p >Weight_in_lbs:{{weight_in_lbs}}</p>
+               <p >Acceleration:{{acceleration}}</p>
+               <p >Year:{{year}}</p>
+               <p >Origin:{{origin}}</p>
+
+
+             <div class="bottom">
+                <img src="https://images.unsplash.com/photo-1449130015084-2d48a345ae62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" id="boximg2" alt="car">
+
+                  <br>
+                <button>Buy now</button>
+                </a>
+</div>
+
+</div>
+{{/each}}
+
+
+
 
 </div>

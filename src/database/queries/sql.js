@@ -6,13 +6,21 @@ const getPasswordWhereUsernameEqualsArg1 = (username, cb) =>
     [username],
     cb
   );
+  const getCars = (cb) =>
+    query.select(
+      "SELECT * from CARS LIMIT 9;",
+      cb
+    );
 
-const getCars = (cb, manufacturer, type, price) =>
+const getCarDetails = (name,origin, cb) =>
+{
+         const newName = `%${name}%`
   query.insert(
-    "SELECT * from cars where manufacturer = $1 and type = $2 and price = $3 ",
-    [manufacturer, type, price],
+    "SELECT * from cars where name  LIKE $1 and origin =$2 LIMIT 9;",
+    [newName,origin],
     cb
   );
+}
 
 const getUsernameWhereUsernameEqualsArg1 = (username, cb) =>
   query.insert(
@@ -28,8 +36,10 @@ const createAccount = (username, password, cb) =>
     cb
   );
 
+
 module.exports = {
   getCars: getCars,
+  details:getCarDetails,
   createAccount: createAccount,
   getUsernameUsername: getUsernameWhereUsernameEqualsArg1,
   getUsernamePassword: getPasswordWhereUsernameEqualsArg1
