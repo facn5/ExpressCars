@@ -4,11 +4,19 @@ const url = require("url");
 const env = require("env2");
 env("config.env");
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("Environment variable DATABASE_URL must be set");
+let type = "production";
+let params;
+
+if (type === "production") {
+  if (!process.env.DATABASE_URL)
+    throw new Error("Environment variable DATABASE_URL must be set");
+} else {
+  if (!process.env.HEROKU_POSTGRESQL_CYAN_URL)
+    throw new Error("Environment variable DATABASE_URL must be set");
 }
 
-const params = url.parse(process.env.DATABASE_URL);
+if (type === "production") params = url.parse(process.env.DATABASE_URL);
+else params = url.parse(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 
 const [username, password] = params.auth.split(":");
 
