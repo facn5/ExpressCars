@@ -7,7 +7,7 @@ const getPasswordWhereUsernameEqualsArg1 = (username, cb) =>
     cb
   );
 
-const getCars = (cb,manufacturer,type,price)
+const getCars => (cb,manufacturer,type,price)
 query.insert("SELECT * from cars where manufacturer = $1 and type = $2 and price = $3 ",[manufacturer,type,price] ,cb);
 
 
