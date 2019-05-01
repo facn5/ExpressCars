@@ -27,6 +27,17 @@ The primary aim of this project is to get comfortable with setting up an Express
 ### Database Schema:-
 ![Database Scheme](https://raw.githubusercontent.com/facn5/ExpressCars/master/public/assets/database_schema.png)
 
+### Tools/technologies used
+* ExpressJs - framework for backend.
+* Handlebars
+* tape - for testing.
+* supertest - for testing.
+* Heroku - for deploying database and website.
+* JSONWEBTOKEN - for saving cookies with encryption.
+* bcryptjs - for hashing passwrod in database.
+* POSTGRESQL - database.
+
+
 ### Team members:-
 * Shadi Rayan: [Github Profile Page](https://github.com/mrfong)
 * Karam Ashqar: [Github Profile Page](https://github.com/karam1ashqar)
