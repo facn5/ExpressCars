@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node src/server/index.js",
     "connect": "nodemon src/server/index.js",
-    "test": "node tests/routes.tests.js | tap-spec"
+    "testRoute": "node tests/routes.tests.js | tap-spec",
+    "testDb": "node tests/database.tests.js | tap-spec"
   },
   "repository": {
     "type": "git",
