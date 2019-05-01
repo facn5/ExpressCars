@@ -7,7 +7,18 @@ tape("homepage endpoint", t => {
     .get("/")
     .expect(200)
     .end(function(err, res) {
-      t.equal(res.status, 200, `homepage endpoint returns 200 status code`);
+      t.equal(res.statusCode, 302, `/ route redirects you to the home route`);
       t.end();
     });
 });
+
+tape("homepage endpoint", t => {
+  supertest(app)
+    .get("/home")
+    .expect(200)
+    .end(function(err, res) {
+      t.equal(res.statusCode, 200, `homepage endpoint redirects the user when he is not authenticated`);
+      t.end();
+    });
+});
+tape.onFinish(() => process.exit(0));
