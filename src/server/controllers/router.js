@@ -16,6 +16,9 @@ router.get("/register??", (req, res) => {
   register.page(res);
 })
 
+router.post('/reg', (req, res) => {
+  register.reg(req, res);
+});
 
 router.get("/home", (req, res) => {
   login.checkauth(res, req);
