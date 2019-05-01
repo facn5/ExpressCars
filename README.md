@@ -17,8 +17,8 @@ The primary aim of this project is to get comfortable with setting up an Express
 
 ### Goals:-
 - [x] Include tests and set up code coverage.
-- [ ] We expect to see unit tests of pure functions, and integration tests of your server routes, including tests for errors such as 404, 500.
-- [ ] You should write tests for your database and use a separate test database and build script.
+- [x] We expect to see unit tests of pure functions, and integration tests of your server routes, including tests for errors such as 404, 500.
+- [x] You should write tests for your database and use a separate test database and build script.
 - [x] Use Heroku or a similar service to host the app and the database.
 - [x] Try to include ES6 syntax on the server.
 - [x] Use handlebars -- Please don't have HTML files.
@@ -35,7 +35,8 @@ The primary aim of this project is to get comfortable with setting up an Express
 * Heroku - for deploying database and website.
 * JSONWEBTOKEN - for saving cookies with encryption.
 * bcryptjs - for hashing passwrod in database.
-* POSTGRESQL - database.
+* PostgreSQL - database.
+* Nodejs - for backend.
 * Authentication - register and login.
 
 
