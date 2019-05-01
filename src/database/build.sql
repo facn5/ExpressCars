@@ -1,13 +1,21 @@
 BEGIN;
 
-DROP TABLE IF EXISTS cars, users CASCADE;
+DROP TABLE IF EXISTS CARS, users CASCADE;
+
+
+
 
 CREATE TABLE CARS(
   id SERIAL PRIMARY KEY,
-  type VARCHAR(1000) NOT NULL,
-  price INTEGER NOT NULL,
-  manufacturer VARCHAR(1000) NOT NULL
-
+  name VARCHAR(1000) NOT NULL,
+  miles_per_gallon FLOAT,
+  cylinders FLOAT NOT NULL,
+  displacement FLOAT NOT NULL,
+  horsepower FLOAT,
+  weight_in_lbs FLOAT NOT NULL,
+  acceleration FLOAT NOT NULL,
+  year TEXT NOT NULL,
+  origin VARCHAR(1000) NOT NULL
 );
 
 CREATE TABLE users(
@@ -16,14 +24,6 @@ CREATE TABLE users(
   password VARCHAR(1000) NOT NULL
 
 );
-
-INSERT INTO cars (type, price, manufacturer) VALUES
-('Coupes', 12300, 'BMW' ),
-('Sedans', 20100, 'MAZDA'),
-('Trucks', 87000, 'VOLVO'),
-('Sport Cars',320000 , 'CORVETTE'),
-('Convertibles', 150000, 'Mercedes BENZ'),
-('Crossovers', 30000, 'Chevrlote');
 
 
 COMMIT;
