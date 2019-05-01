@@ -16,8 +16,8 @@ router.get("/register??", (req, res) => {
   register.page(res);
 })
 
-router.post('/reg', (req, res) => {
-  register.reg(req, res);
+router.post('/reg', ( { body }, res) => {
+  register.reg(body.username, body.password, res);
 });
 
 router.get("/home", (req, res) => {
@@ -30,5 +30,5 @@ router.post("/login", ({ body }, res) => {
 });
 
 router.use(error.client);
-router.use(error.server);
+// router.use(error.server);
 module.exports = router;
