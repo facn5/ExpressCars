@@ -4,7 +4,7 @@ const url = require("url");
 const env = require("env2");
 env("config.env");
 
-let type = "production";
+let type = "production-shit";
 let params;
 
 if (type === "production") {
