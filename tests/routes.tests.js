@@ -21,4 +21,17 @@ tape("homepage endpoint", t => {
       t.end();
     });
 });
+
+tape("homepage endpoint", t => {
+  supertest(app)
+    .get("/hdasadssda")
+    .expect(404)
+    .end(function(err, res) {
+      t.equal(res.statusCode, 404, `weird endpoint return 404 status code`);
+      t.end();
+    });
+});
+
+
+
 tape.onFinish(() => process.exit(0));
