@@ -36,6 +36,7 @@ The primary aim of this project is to get comfortable with setting up an Express
 * JSONWEBTOKEN - for saving cookies with encryption.
 * bcryptjs - for hashing passwrod in database.
 * POSTGRESQL - database.
+* Authentication - register and login.
 
 
 ### Team members:-
