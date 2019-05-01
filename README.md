@@ -35,7 +35,8 @@ The primary aim of this project is to get comfortable with setting up an Express
 * Heroku - for deploying database and website.
 * JSONWEBTOKEN - for saving cookies with encryption.
 * bcryptjs - for hashing passwrod in database.
-* POSTGRESQL - database.
+* PostgreSQL - database.
+* Nodejs - for backend.
 * Authentication - register and login.
 
 
