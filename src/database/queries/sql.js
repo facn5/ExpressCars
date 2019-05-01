@@ -12,6 +12,6 @@ query.insert("SELECT * from cars where manufacturer = $1 and type = $2 and price
 
 
 module.exports = {
-  getCars,
+  getCars:getCars,
   getUsernamePassword: getPasswordWhereUsernameEqualsArg1
 };
