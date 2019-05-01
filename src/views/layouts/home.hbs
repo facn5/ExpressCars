@@ -5,11 +5,11 @@
 
       <form method="POST" action="/search">
         Vehicle:
-        <input type="text" name="Name">
+        <input type="text" name="name">
 
-  Year:<input type="text" name="Year">
+  Year:<input type="text" name="year">
         Origin:
-        <input type="text" name="Origin">
+        <input type="text" name="origin">
         <input type="submit" value="Submit">
 
       </form>
@@ -19,15 +19,15 @@
 
 {{#each cars}}
 <div class="box">
-  <h3 id="Name">{{name}}</h3>
-   <p id="Miles_per_Gallon">Miles_per_Gallon:{{miles_per_Gallon}}</p>
-     <p id="Cylinders">Cylinders:{{cylinders}}</p>
-       <p id="Displacement">Displacement:{{displacement}}</p>
-              <p id="Horsepower">Horsepower:{{horsepower}}</p>
-               <p id="Weight_in_lbs">Weight_in_lbs:{{weight_in_lbs}}</p>
-               <p id="Acceleration">Acceleration:{{acceleration}}</p>
-               <p id="Year">Year:{{year}}</p>
-               <p id="Origin">Origin:{{origin}}</p>
+  <h3 >{{name}}</h3>
+   <p >Miles_per_Gallon:{{miles_per_gallon}}</p>
+     <p >Cylinders:{{cylinders}}</p>
+       <p >Displacement:{{displacement}}</p>
+              <p >Horsepower:{{horsepower}}</p>
+               <p >Weight_in_lbs:{{weight_in_lbs}}</p>
+               <p >Acceleration:{{acceleration}}</p>
+               <p >Year:{{year}}</p>
+               <p >Origin:{{origin}}</p>
 
 
              <div class="bottom">
