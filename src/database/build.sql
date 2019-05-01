@@ -12,10 +12,13 @@ CREATE TABLE CARS(
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(1000) NOT NULL,
+  username VARCHAR(1000) NOT NULL,
   password VARCHAR(1000) NOT NULL
 
 );
+
+INSERT INTO users( username, password ) VALUES
+('karam1ashqar', '$2a$10$.tanz/Usv/ZfcNAPxj1MFe9kr2yA9DXCugWPHPeul715GepiUvaDS');
 
 INSERT INTO cars (type, price, manufacturer) VALUES
 ('Coupes', 12300, 'BMW' ),
