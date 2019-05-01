@@ -7,6 +7,10 @@ const login = require("./loginPage");
 
 // router.get('/fruit', fruit.get);
 // router.post('/fruit', fruit.post);
+router.get("/", (req, res) => {
+  res.redirect('/home');
+})
+
 router.get("/home", (req, res) => {
   login.checkauth(res, req);
 });

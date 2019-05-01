@@ -28,10 +28,6 @@ exports.login = (res, user, pass) => {
               };
             else {
               if (success) {
-                endObject = {
-                  msg: "Successfuly logged in!",
-                  color: "green"
-                };
                 const userDetails = {
                   "content-type": "application/json",
                   u$u: user,
@@ -45,6 +41,8 @@ exports.login = (res, user, pass) => {
                 };
 
                 res.cookie("udetails", cookie, options);
+                res.render("layouts/home");
+                return;
               } else {
                 endObject = {
                   msg: "invalid username/password!",
@@ -118,7 +116,7 @@ exports.checkauth = (res, req) => {
                       }
                     });
                   else {
-                    if (success) res.render("homs");
+                    if (success) res.render("layouts/home");
                     else
                       res.render("layouts/loginPageLayout", {
                         object: {
