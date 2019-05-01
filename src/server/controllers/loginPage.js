@@ -3,7 +3,16 @@ const sql = require("../../database/queries/sql");
 const { sign, verify } = require("jsonwebtoken");
 const ppcookie = require("cookie");
 
+let cars = [];
+
+
 exports.login = (res, user, pass) => {
+  sql.getCars( (err, result) => {
+    if(!err) {
+     cars = result.rows;
+    }
+  })
+
   sql.getUsernamePassword(user, (err, result) => {
     if (err) console.log(err);
     else {
@@ -40,7 +49,7 @@ exports.login = (res, user, pass) => {
                 };
 
                 res.cookie("udetails", cookie, options);
-                res.render("layouts/home");
+                res.render("layouts/home", {cars: cars});
                 return;
               } else {
                 endObject = {
@@ -60,6 +69,11 @@ exports.login = (res, user, pass) => {
 };
 
 exports.checkauth = (res, req) => {
+  sql.getCars( (err, result) => {
+    if(!err) {
+     cars = result.rows;
+    }
+  })
   if (!req.headers.cookie)
     res.render("layouts/loginPageLayout", {
       object: {
@@ -115,7 +129,7 @@ exports.checkauth = (res, req) => {
                       }
                     });
                   else {
-                    if (success) res.render("layouts/home");
+                    if (success) res.render("layouts/home", {cars: cars});
                     else
                       res.render("layouts/loginPageLayout", {
                         object: {
