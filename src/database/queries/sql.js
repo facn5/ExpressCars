@@ -21,6 +21,12 @@ const getUsernameWhereUsernameEqualsArg1 = (username, cb) =>
     cb
   );
 
+const createAccount = (username, password, cb) =>
+  query.insert(
+    `INSERT into users (username,password) VALUES ($1,$2);`,
+    [username, password],
+    cb
+  );
 
 module.exports = {
   getCars: getCars,
