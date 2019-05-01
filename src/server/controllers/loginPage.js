@@ -1,4 +1,3 @@
-const path = require("path");
 const utils = require("../../utils/utils");
 const sql = require("../../database/queries/sql");
 const { sign, verify } = require("jsonwebtoken");
