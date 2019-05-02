@@ -29,7 +29,10 @@ router.get("/home", (req, res) => {
 router.post("/login", ({ body }, res) => {
   login.login(res, body.username, body.password);
 });
-
+router.get("/logout",(req, res) => {
+  res.cookie('udetails', 'fahhkkh', {expires: new Date(0)})
+  res.redirect("/");
+})
 router.post("/search",({body},res)=>{
 
 search.search(res,body.name,body.origin)
