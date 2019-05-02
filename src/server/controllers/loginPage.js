@@ -10,6 +10,11 @@ const staticMSG = {
   }
 
 exports.login = (res, user, pass) => {
+  if( user === "" || pass === "")
+  res.render("layouts/registerPageLayout", {
+    msg: "Invalid user credientals",
+    color: "red"
+  });
   sql.getCars( (err, result) => {
     if(!err) {
      cars = result.rows;
