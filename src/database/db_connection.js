@@ -1,4 +1,6 @@
-const { Pool } = require("pg");
+const {
+  Pool
+} = require("pg");
 const url = require("url");
 
 const env = require("env2");
@@ -10,13 +12,15 @@ let params;
 if (type === "production") {
   if (!process.env.DATABASE_URL)
     throw new Error("Environment variable DATABASE_URL must be set");
+
+  params = url.parse(process.env.DATABASE_URL)
 } else {
   if (!process.env.HEROKU_POSTGRESQL_CYAN_URL)
     throw new Error("Environment variable DATABASE_URL must be set");
+
+  url.parse(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 }
 
-if (type === "production") params = url.parse(process.env.DATABASE_URL);
-else params = url.parse(process.env.HEROKU_POSTGRESQL_CYAN_URL);
 
 const [username, password] = params.auth.split(":");
 
