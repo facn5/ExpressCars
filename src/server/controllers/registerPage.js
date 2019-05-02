@@ -12,6 +12,11 @@ exports.page = res => {
 };
 
 exports.reg = (user, pass, res) => {
+  if( user === "" || pass === "")
+  res.render("layouts/registerPageLayout", {
+    msg: "Invalid user credientals",
+    color: "red"
+  });
   if (user != null && pass != null) {
     sql.getUsernameUsername(user, (err, result) => {
       if (err)
