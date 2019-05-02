@@ -6,15 +6,13 @@
       <form method="POST" action="/search">
         Vehicle:
         <input type="text" name="name">
-        Origin:
-        <input type="text" name="origin">
+        <select name='origin'>  <option value="USA">USA</options>
+                  <option value ="Japan">Japan</options>
+        </select>
         <input type="submit" value="Submit">
       </form>
 
 </div>
-
-<h2 style="text-align:center;">Hello {{u$u}}</h2>
-
 <div id="content-container">
 
 {{#each cars}}
