@@ -12,11 +12,11 @@ exports.page = res => {
 };
 
 exports.reg = (user, pass, res) => {
-  if( user === "" || pass === "")
-  res.render("layouts/registerPageLayout", {
-    msg: "Invalid user credientals",
-    color: "red"
-  });
+  if (user === "" || pass === "")
+    res.render("layouts/registerPageLayout", {
+      msg: "Invalid user credientals",
+      color: "red"
+    });
   if (user != null && pass != null) {
     sql.getUsernameUsername(user, (err, result) => {
       if (err)
@@ -45,8 +45,7 @@ exports.reg = (user, pass, res) => {
                     if (success) {
                       const userDetails = {
                         "content-type": "application/json",
-                        u$u: user,
-                        u$p: pass
+                        u$u: user
                       };
 
                       const cookie = sign(userDetails, process.env.SECRET);
@@ -56,7 +55,7 @@ exports.reg = (user, pass, res) => {
                       };
 
                       res.cookie("udetails", cookie, options);
-                      res.redirect('/home')
+                      res.redirect("/home");
                     }
                   }
                 });

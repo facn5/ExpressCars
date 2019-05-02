@@ -4,9 +4,9 @@ const { verify } = require("jsonwebtoken");
 const ppcookie = require("cookie");
 
 const staticMSG = {
-    msg: "Users need to login to access this part of the website",
-    color: "black"
-  }
+  msg: "Users need to login to access this part of the website",
+  color: "black"
+};
 
 exports.search = (req, res, name, origin) => {
   sql.details(name, origin, (err, result) => {
@@ -35,7 +35,7 @@ exports.search = (req, res, name, origin) => {
                 object: staticMSG
               });
 
-            const { u$u, u$p } = jwt;
+            const { u$u } = jwt;
             sql.getUsernamePassword(u$u, (err, result) => {
               if (err) console.log(err);
               else {
@@ -44,24 +44,18 @@ exports.search = (req, res, name, origin) => {
                     object: staticMSG
                   });
                 else if (result.rowCount == 1) {
-                  utils.comparePasswords(
-                    u$p,
-                    result.rows[0].password,
-                    (err, success) => {
-                      if (err)
+                  sql.getUsernamePassword(u$u, (err, result) => {
+                    if (err) console.log(err);
+                    else {
+                      if (result.rowCount == 0)
                         res.render("layouts/loginPageLayout", {
                           object: staticMSG
                         });
-                      else {
-                        if (success)
-                          res.render("layouts/home", { cars, u$u });
-                        else
-                          res.render("layouts/loginPageLayout", {
-                            object: staticMSG
-                          });
+                      else if (result.rowCount == 1) {
+                        res.render("layouts/home", { cars, u$u });
                       }
                     }
-                  );
+                  });
                 }
               }
             });
