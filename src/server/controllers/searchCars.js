@@ -54,7 +54,7 @@ exports.search = (req, res, name, origin) => {
                         });
                       else {
                         if (success)
-                          res.render("layouts/home", { cars: cars, u$u });
+                          res.render("layouts/home", { cars, u$u });
                         else
                           res.render("layouts/loginPageLayout", {
                             object: staticMSG
