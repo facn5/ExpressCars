@@ -31,7 +31,7 @@ router.post("/login", ({ body }, res) => {
 });
 
 router.post("/search",({body},res)=>{
-  console.log(body);
+
 search.search(res,body.name,body.origin)
 })
 router.use(error.client);
