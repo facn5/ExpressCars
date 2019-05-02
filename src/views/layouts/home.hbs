@@ -1,46 +1,46 @@
-
-<link rel="stylesheet" href="/../../../../styles/index.css"/>
+<link rel="stylesheet" href="/../../../../styles/index.css" />
 
 <div id="main-content">
 
-      <form method="POST" action="/search">
-        Vehicle:
-        <input required type="text" name="name">
-        <select required name='origin'>  <option value="USA">USA</options>
-                  <option value ="Japan">Japan</options>
-        </select>
-        <input type="submit" value="Submit">
+  <form method="POST" action="/search">
+    <label style="margin:15px auto;font-size:20px;">Vehicle:</label>
+    <input required type="text" name="name">
+    <select style="border-radius:10px;margin:0px auto;" required name='origin'>
+      <option value="USA">USA</options>
+      <option value="Japan">Japan</options>
+    </select>
+    <input type="submit" value="Submit">
 
-      </form>
+  </form>
 
 </div>
 
-<div style="margin: 0 auto;
+<div style="margin: 10px auto;
     text-align: center;">
-  <button  type="button" ><a href="/logout">LogOut</a></button>
+  <button style="border-radius:10px;margin:0px auto;" type="button"><a href="/logout">LogOut</a></button>
 </div>
 <div id="content-container">
 
-{{#each cars}}
-<div class="box">
-  <h3 >{{name}}</h3>
-   <p >Miles_per_Gallon:{{miles_per_gallon}}</p>
-     <p >Cylinders:{{cylinders}}</p>
-       <p >Displacement:{{displacement}}</p>
-              <p >Horsepower:{{horsepower}}</p>
-               <p >Weight_in_lbs:{{weight_in_lbs}}</p>
-               <p >Acceleration:{{acceleration}}</p>
-               <p >Year:{{year}}</p>
-               <p >Origin:{{origin}}</p>
+  {{#each cars}}
+    <div class="box">
+      <h3>{{name}}</h3>
+      <p>Miles_per_Gallon:{{miles_per_gallon}}</p>
+      <p>Cylinders:{{cylinders}}</p>
+      <p>Displacement:{{displacement}}</p>
+      <p>Horsepower:{{horsepower}}</p>
+      <p>Weight_in_lbs:{{weight_in_lbs}}</p>
+      <p>Acceleration:{{acceleration}}</p>
+      <p>Year:{{year}}</p>
+      <p>Origin:{{origin}}</p>
 
 
-             <div class="bottom">
-                <img src="https://images.unsplash.com/photo-1449130015084-2d48a345ae62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" id="boximg2" alt="car">
+      <div class="bottom">
+        <img src="https://images.unsplash.com/photo-1449130015084-2d48a345ae62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" id="boximg2" alt="car">
 
-</div>
+      </div>
 
-</div>
-{{/each}}
+    </div>
+  {{/each}}
 
 
 
