@@ -1,14 +1,12 @@
 const express = require("express");
-const path = require("path");
+
 
 const router = express.Router();
 const error = require("./error");
 const login = require("./loginPage");
 const register = require("./registerPage");
-const search = require("./searchCars");
+const {search} = require("./searchCars");
 
-// router.get('/fruit', fruit.get);
-// router.post('/fruit', fruit.post);
 router.get("/", (req, res) => {
   res.redirect("/home");
 });
@@ -29,9 +27,16 @@ router.post("/login", ({ body }, res) => {
   login.login(res, body.username, body.password);
 });
 
+
 router.post("/search", (req, res) => {
-  search.search(req, res, req.body.name, req.body.origin);
+  search(req, res, req.body.name, req.body.origin);
 });
+
+router.get("/logout",(req, res) => {
+  res.cookie('udetails', 'fahhkkh', {expires: new Date(0)})
+  res.redirect("/");
+})
+
 router.use(error.client);
-// router.use(error.server);
+
 module.exports = router;
