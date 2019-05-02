@@ -4,7 +4,10 @@ const { sign, verify } = require("jsonwebtoken");
 const ppcookie = require("cookie");
 
 let cars = [];
-
+const staticMSG = {
+    msg: "Users need to login to access this part of the website",
+    color: "black"
+  }
 
 exports.login = (res, user, pass) => {
   sql.getCars( (err, result) => {
@@ -76,10 +79,7 @@ exports.checkauth = (res, req) => {
   })
   if (!req.headers.cookie)
     res.render("layouts/loginPageLayout", {
-      object: {
-        msg: "Users need to login to access this part of the website",
-        color: "black"
-      }
+      object: staticMSG
     });
   else {
     let jwt;
@@ -87,10 +87,8 @@ exports.checkauth = (res, req) => {
       jwt = ppcookie.parse(req.headers.cookie);
     } catch (error) {
       res.render("layouts/loginPageLayout", {
-        object: {
-          msg: "Users need to login to access this part of the website",
-          color: "black"
-        }
+        object: staticMSG
+
       });
     }
 
@@ -98,10 +96,8 @@ exports.checkauth = (res, req) => {
       verify(jwt.udetails, process.env.SECRET, (err, jwt) => {
         if (err)
           res.render("layouts/loginPageLayout", {
-            object: {
-              msg: "Users need to login to access this part of the website",
-              color: "black"
-            }
+            object: staticMSG
+
           });
 
         const { u$u, u$p } = jwt;
@@ -110,10 +106,8 @@ exports.checkauth = (res, req) => {
           else {
             if (result.rowCount == 0)
               res.render("layouts/loginPageLayout", {
-                object: {
-                  msg: "Users need to login to access this part of the website",
-                  color: "black"
-                }
+                object: staticMSG
+
               });
             else if (result.rowCount == 1) {
               utils.comparePasswords(
@@ -122,21 +116,15 @@ exports.checkauth = (res, req) => {
                 (err, success) => {
                   if (err)
                     res.render("layouts/loginPageLayout", {
-                      object: {
-                        msg:
-                          "Users need to login to access this part of the website",
-                        color: "black"
-                      }
+                      object: staticMSG
+
                     });
                   else {
                     if (success) res.render("layouts/home", {cars: cars,  u$u});
                     else
                       res.render("layouts/loginPageLayout", {
-                        object: {
-                          msg:
-                            "Users need to logins to access this part of the website",
-                          color: "black"
-                        }
+                        object: staticMSG
+
                       });
                   }
                 }
