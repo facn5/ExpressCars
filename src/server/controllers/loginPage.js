@@ -5,21 +5,21 @@ const ppcookie = require("cookie");
 
 let cars = [];
 const staticMSG = {
-    msg: "Users need to login to access this part of the website",
-    color: "black"
-  }
+  msg: "Users need to login to access this part of the website",
+  color: "black"
+};
 
 exports.login = (res, user, pass) => {
-  if( user === "" || pass === "")
-  res.render("layouts/registerPageLayout", {
-    msg: "Invalid user credientals",
-    color: "red"
-  });
-  sql.getCars( (err, result) => {
-    if(!err) {
-     cars = result.rows;
+  if (user === "" || pass === "")
+    res.render("layouts/registerPageLayout", {
+      msg: "Invalid user credientals",
+      color: "red"
+    });
+  sql.getCars((err, result) => {
+    if (!err) {
+      cars = result.rows;
     }
-  })
+  });
 
   sql.getUsernamePassword(user, (err, result) => {
     if (err) console.log(err);
@@ -46,8 +46,7 @@ exports.login = (res, user, pass) => {
               if (success) {
                 const userDetails = {
                   "content-type": "application/json",
-                  u$u: user,
-                  u$p: pass
+                  u$u: user
                 };
 
                 const cookie = sign(userDetails, process.env.SECRET);
@@ -57,7 +56,7 @@ exports.login = (res, user, pass) => {
                 };
 
                 res.cookie("udetails", cookie, options);
-                res.render("layouts/home", {cars: cars, u$u: user});
+                res.render("layouts/home", { cars: cars, u$u: user });
                 return;
               } else {
                 endObject = {
@@ -77,11 +76,11 @@ exports.login = (res, user, pass) => {
 };
 
 exports.checkauth = (res, req) => {
-  sql.getCars( (err, result) => {
-    if(!err) {
-     cars = result.rows;
+  sql.getCars((err, result) => {
+    if (!err) {
+      cars = result.rows;
     }
-  })
+  });
   if (!req.headers.cookie)
     res.render("layouts/loginPageLayout", {
       object: staticMSG
@@ -93,7 +92,6 @@ exports.checkauth = (res, req) => {
     } catch (error) {
       res.render("layouts/loginPageLayout", {
         object: staticMSG
-
       });
     }
 
@@ -102,38 +100,18 @@ exports.checkauth = (res, req) => {
         if (err)
           res.render("layouts/loginPageLayout", {
             object: staticMSG
-
           });
 
-        const { u$u, u$p } = jwt;
+        const { u$u } = jwt;
         sql.getUsernamePassword(u$u, (err, result) => {
           if (err) console.log(err);
           else {
             if (result.rowCount == 0)
               res.render("layouts/loginPageLayout", {
                 object: staticMSG
-
               });
             else if (result.rowCount == 1) {
-              utils.comparePasswords(
-                u$p,
-                result.rows[0].password,
-                (err, success) => {
-                  if (err)
-                    res.render("layouts/loginPageLayout", {
-                      object: staticMSG
-
-                    });
-                  else {
-                    if (success) res.render("layouts/home", {cars: cars,  u$u});
-                    else
-                      res.render("layouts/loginPageLayout", {
-                        object: staticMSG
-
-                      });
-                  }
-                }
-              );
+              res.render("layouts/home", { cars: cars, u$u });
             }
           }
         });
